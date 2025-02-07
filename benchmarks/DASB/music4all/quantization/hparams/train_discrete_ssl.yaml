@@ -30,10 +30,11 @@ train_remove_if_longer: 60.0  # Seconds
 valid_remove_if_longer: 60.0  # Seconds
 test_remove_if_longer: 60.0  # Seconds
 sorting: random
+select_n: 1200
 
 # Training parameters
 num_epochs: 1
-train_batch_size: 8
+train_batch_size: 2
 valid_batch_size: 1
 test_batch_size: 1
 dataloader_workers: 4

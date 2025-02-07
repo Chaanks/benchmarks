@@ -149,6 +149,7 @@ def dataio_prepare(hparams):
         sort_key="duration",
         reverse=hparams["sorting"] == "descending",
         key_max_value={"duration": hparams["train_remove_if_longer"]},
+        select_n=hparams["select_n"],
     )
 
     valid_data = sb.dataio.dataset.DynamicItemDataset.from_json(
@@ -186,8 +187,8 @@ def dataio_prepare(hparams):
             sig, original_sample_rate, hparams["sample_rate"]
         )
         if sig.ndim > 1:
-            sig=sig[:,0]
-        
+            sig = sig[:, 0]
+
         yield sig.squeeze()
 
     sb.dataio.dataset.add_dynamic_item(
